@@ -1255,6 +1255,7 @@ GameObject:
   - component: {fileID: 472559110}
   - component: {fileID: 472559113}
   - component: {fileID: 472559114}
+  - component: {fileID: 472559115}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1373,6 +1374,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FootStep: {fileID: 1261530024}
   Sword01: {fileID: 1955446945}
+--- !u!114 &472559115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472559108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490ba5d4dcdbd46459d68e8237da6d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHelath: 100
+  CurrentHelath: 0
 --- !u!1001 &582430526
 PrefabInstance:
   m_ObjectHideFlags: 0

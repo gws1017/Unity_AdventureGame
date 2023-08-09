@@ -8,6 +8,9 @@ public class Character : MonoBehaviour
     private PlayerInput playerinput;
     private Animator anim;
 
+    private Health m_Health;
+    private DamageCaster m_DamageCaster;
+
     private Vector3 MovementVelocity;
     private float VerticalVelocity;
     private float AttackStartTime;
@@ -33,7 +36,9 @@ public class Character : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
-        
+        m_Health = GetComponent<Health>();
+        m_DamageCaster = GetComponentInChildren<DamageCaster>();
+
         if(!IsPlayer)
         {
             Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -159,6 +164,24 @@ public class Character : MonoBehaviour
     public void AttackEnd()
     {
         SwitchStateTo(CharacterState.Normal);
+    }
+
+    public void ApplyDamage (int damage, Vector3 AttackerPos = new Vector3())
+    {
+        if(m_Health != null)
+        {
+            m_Health.ApplyDamage(damage);
+        }
+    }
+
+    public void AttackCollisionEnable()
+    {
+        m_DamageCaster.AttackCollsionEnable();
+    }
+
+    public void AttackCollisionDisable()
+    {
+        m_DamageCaster.AttackCollsionDisable();
     }
 }
 
