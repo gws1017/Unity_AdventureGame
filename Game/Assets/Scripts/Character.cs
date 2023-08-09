@@ -10,15 +10,25 @@ public class Character : MonoBehaviour
 
     private Vector3 MovementVelocity;
     private float VerticalVelocity;
+    private float AttackStartTime;
 
     public float MoveSpeed = 5f;
     public float Gravity = -9.8f;
-
+    public float AttackSlideDuration = 0.4f;
+    public float AttackSlideSpeed = 0.06f;
     //Enemy
     private UnityEngine.AI.NavMeshAgent Agent;
     private Transform TargetPlayer;
 
+    //State
+    public enum CharacterState
+    {
+        Normal,Attack
+    }
+    public CharacterState CurrentState;
+
     public bool IsPlayer = true;
+
     private void Awake()
     {
         cc = GetComponent<CharacterController>();
@@ -38,6 +48,12 @@ public class Character : MonoBehaviour
 
     private void CalculatePlayerMovement()
     {
+        if(playerinput.MouseButtonDown && cc.isGrounded)
+        {
+            SwitchStateTo(CharacterState.Attack);
+            //return;
+        }
+
         MovementVelocity.Set(playerinput.HorizonItalInput, 0f, playerinput.VerticalInput);
         MovementVelocity.Normalize();
         MovementVelocity = Quaternion.Euler(0f, -45f, 0f) * MovementVelocity;
@@ -65,9 +81,31 @@ public class Character : MonoBehaviour
 
     private void FixedUpdate()
     {
+        switch(CurrentState)
+        {
+            case CharacterState.Normal:
+                if(IsPlayer)
+                    CalculatePlayerMovement();
+                else
+                    CalculateEnemyMovement();
+                break;
+            case CharacterState.Attack:
+                if(IsPlayer)
+                {
+                    MovementVelocity = Vector3.zero;
+
+                    if(Time.time < AttackStartTime + AttackSlideDuration) 
+                    {
+                        float TimePassed = Time.time - AttackStartTime;
+                        float LerpTime = TimePassed / AttackSlideDuration;
+                        MovementVelocity = Vector3.Lerp(transform.forward * AttackSlideSpeed, Vector3.zero, LerpTime);
+                    }
+                }
+                break;
+        }
+
         if(IsPlayer)
         {
-            CalculatePlayerMovement();
             //중력 적용
             if (cc.isGrounded == false)
                 VerticalVelocity = Gravity;
@@ -78,9 +116,43 @@ public class Character : MonoBehaviour
 
             cc.Move(MovementVelocity);
         }
-        else
-            CalculateEnemyMovement();
        
+    }
+
+    private void SwitchStateTo(CharacterState new_state)
+    {
+        playerinput.MouseButtonDown = false;
+        //Exit
+        switch(CurrentState)
+        {
+            case CharacterState.Normal:
+                break;
+            case CharacterState.Attack:
+                break;
+        }
+        //Enter
+        switch (new_state)
+        {
+            case CharacterState.Normal:
+                break;
+            case CharacterState.Attack:
+                anim.SetTrigger("Attack");
+                if(IsPlayer)
+                {
+                    AttackStartTime = Time.time;
+                }
+                break;
+        }
+
+        CurrentState = new_state;
+
+        
+        //Debug.Log("Swtich State " + CurrentState);
+    }
+
+    public void AttackEnd()
+    {
+        SwitchStateTo(CharacterState.Normal);
     }
 }
 
