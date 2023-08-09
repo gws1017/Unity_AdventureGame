@@ -7,6 +7,9 @@ public class Character : MonoBehaviour
     private CharacterController cc;
     private PlayerInput playerinput;
     private Animator anim;
+    private MaterialPropertyBlock m_MaterialPropertyBlock;
+    private SkinnedMeshRenderer m_SkinnedMeshRenderer;
+
 
     private Health m_Health;
     private DamageCaster m_DamageCaster;
@@ -39,6 +42,10 @@ public class Character : MonoBehaviour
         m_Health = GetComponent<Health>();
         m_DamageCaster = GetComponentInChildren<DamageCaster>();
 
+        m_SkinnedMeshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        m_MaterialPropertyBlock = new MaterialPropertyBlock();
+        m_SkinnedMeshRenderer.GetPropertyBlock(m_MaterialPropertyBlock);
+
         if(!IsPlayer)
         {
             Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -56,7 +63,7 @@ public class Character : MonoBehaviour
         if(playerinput.MouseButtonDown && cc.isGrounded)
         {
             SwitchStateTo(CharacterState.Attack);
-            //return;
+            return;
         }
 
         MovementVelocity.Set(playerinput.HorizonItalInput, 0f, playerinput.VerticalInput);
@@ -134,11 +141,8 @@ public class Character : MonoBehaviour
             case CharacterState.Normal:
                 break;
             case CharacterState.Attack:
-                if(!IsPlayer)
-                {
-                    Quaternion rot = Quaternion.LookRotation(TargetPlayer.position - transform.position);
-                    transform.rotation = rot;
-                }
+                if(m_DamageCaster != null)
+                    AttackCollisionDisable();
                 break;
         }
         //Enter
@@ -147,11 +151,16 @@ public class Character : MonoBehaviour
             case CharacterState.Normal:
                 break;
             case CharacterState.Attack:
-                anim.SetTrigger("Attack");
-                if(IsPlayer)
+
+                if (!IsPlayer)
                 {
-                    AttackStartTime = Time.time;
+                    Quaternion rot = Quaternion.LookRotation(TargetPlayer.position - transform.position);
+                    transform.rotation = rot;
                 }
+                else
+                    AttackStartTime = Time.time;
+
+                anim.SetTrigger("Attack");
                 break;
         }
 
@@ -172,6 +181,13 @@ public class Character : MonoBehaviour
         {
             m_Health.ApplyDamage(damage);
         }
+        
+        if(!IsPlayer)
+        {
+            GetComponent<EnemyVFXManager>().PlayHitEffect(AttackerPos);
+        }
+
+        StartCoroutine(MaterialBlink());
     }
 
     public void AttackCollisionEnable()
@@ -182,6 +198,15 @@ public class Character : MonoBehaviour
     public void AttackCollisionDisable()
     {
         m_DamageCaster.AttackCollsionDisable();
+    }
+
+    IEnumerator MaterialBlink()
+    {
+        m_MaterialPropertyBlock.SetFloat("_blink", 0.4f);
+        m_SkinnedMeshRenderer.SetPropertyBlock(m_MaterialPropertyBlock);
+        yield return new WaitForSeconds(0.2f);
+        m_MaterialPropertyBlock.SetFloat("_blink", 0f);
+        m_SkinnedMeshRenderer.SetPropertyBlock(m_MaterialPropertyBlock);
     }
 }
 
