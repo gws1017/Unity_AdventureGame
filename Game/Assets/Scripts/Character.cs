@@ -76,6 +76,7 @@ public class Character : MonoBehaviour
         {
             Agent.SetDestination(TargetPlayer.position);
             anim.SetFloat("Speed", 0f);
+            SwitchStateTo(CharacterState.Attack);
         }
     }
 
@@ -121,13 +122,18 @@ public class Character : MonoBehaviour
 
     private void SwitchStateTo(CharacterState new_state)
     {
-        playerinput.MouseButtonDown = false;
+        if(IsPlayer)playerinput.MouseButtonDown = false;
         //Exit
         switch(CurrentState)
         {
             case CharacterState.Normal:
                 break;
             case CharacterState.Attack:
+                if(!IsPlayer)
+                {
+                    Quaternion rot = Quaternion.LookRotation(TargetPlayer.position - transform.position);
+                    transform.rotation = rot;
+                }
                 break;
         }
         //Enter
