@@ -148,11 +148,7 @@ public class Character : MonoBehaviour
             case CharacterState.Dead:
                 return;
             case CharacterState.Hit:
-                if(ImpactVector.magnitude > 0.2f)
-                {
-                    MovementVelocity = ImpactVector * Time.deltaTime;
-                }
-                ImpactVector = Vector3.Lerp(ImpactVector, Vector3.zero, Time.deltaTime * 5);
+
                 break;
             case CharacterState.Slide:
                 MovementVelocity = transform.forward * SlideSpeed * Time.deltaTime;
@@ -166,7 +162,13 @@ public class Character : MonoBehaviour
                 break;
         }
 
-        if(IsPlayer)
+        if (ImpactVector.magnitude > 0.2f)
+        {
+            MovementVelocity = ImpactVector * Time.deltaTime;
+        }
+        ImpactVector = Vector3.Lerp(ImpactVector, Vector3.zero, Time.deltaTime * 5);
+
+        if (IsPlayer)
         {
             //중력 적용
             if (cc.isGrounded == false)
@@ -178,6 +180,14 @@ public class Character : MonoBehaviour
 
             cc.Move(MovementVelocity);
             MovementVelocity = Vector3.zero;
+        }
+        else
+        {
+            if(CurrentState != CharacterState.Normal)
+            {
+                cc.Move(MovementVelocity);
+                MovementVelocity = Vector3.zero;
+            }
         }
 
     }
@@ -291,6 +301,8 @@ public class Character : MonoBehaviour
             SwitchStateTo(CharacterState.Hit);
             AddImpact(AttackerPos, 10f);
         }
+        else
+            AddImpact(AttackerPos, 2.5f);
     }
 
     IEnumerator DelayCancelInvincible()
