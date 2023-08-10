@@ -1,19 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour
 {
     private List<SpawnPoint> SpawnPointList;
+    private List<Character> SpawnedCharacters;
 
     private bool HasSpawned;
 
     public Collider m_collider;
+    public UnityEvent OnAllSpawnedCharacterEliminated;
 
     private void Awake()
     {
         var SpawnPointArray = transform.parent.GetComponentsInChildren<SpawnPoint>();
         SpawnPointList = new List<SpawnPoint>(SpawnPointArray);
+        SpawnedCharacters = new List<Character>();
+    }
+
+    private void Update()
+    {
+        if (!HasSpawned || SpawnedCharacters.Count == 0)
+            return;
+
+        bool AllSpawnedAreDead = true;
+
+        foreach(Character c in SpawnedCharacters)
+        {
+            if(c.CurrentState != Character.CharacterState.Dead)
+            {
+                AllSpawnedAreDead = false;
+                break;
+            }
+        }
+
+        if(AllSpawnedAreDead)
+        {
+            if(OnAllSpawnedCharacterEliminated != null)
+                OnAllSpawnedCharacterEliminated.Invoke();
+            SpawnedCharacters.Clear();
+        }
     }
 
     public void SpawnCharacter()
@@ -28,6 +56,7 @@ public class Spawner : MonoBehaviour
             if(point.EnemyToSpawn != null)
             {
                 GameObject SpawnedObject = Instantiate(point.EnemyToSpawn,point.transform.position,Quaternion.identity);
+                SpawnedCharacters.Add(SpawnedObject.GetComponent<Character>());
             }
         }
     }
