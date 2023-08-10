@@ -12,11 +12,15 @@ public class PickUp : MonoBehaviour
     public PickUpType Type;
     public int Value = 20;
 
+    public ParticleSystem CollectedParticle;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
             other.gameObject.GetComponent<Character>().PickUpItem(this);
+            if(CollectedParticle != null)
+                Instantiate(CollectedParticle,transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
     }

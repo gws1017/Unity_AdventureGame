@@ -55,7 +55,7 @@ public class Spawner : MonoBehaviour
         {
             if(point.EnemyToSpawn != null)
             {
-                GameObject SpawnedObject = Instantiate(point.EnemyToSpawn,point.transform.position,Quaternion.identity);
+                GameObject SpawnedObject = Instantiate(point.EnemyToSpawn,point.transform.position,point.transform.rotation);
                 SpawnedCharacters.Add(SpawnedObject.GetComponent<Character>());
             }
         }
