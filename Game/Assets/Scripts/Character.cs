@@ -15,6 +15,7 @@ public class Character : MonoBehaviour
     private DamageCaster m_DamageCaster;
 
     private Vector3 MovementVelocity;
+    private Vector3 ImpactVector;
     private float VerticalVelocity;
     private float AttackStartTime;
 
@@ -22,6 +23,7 @@ public class Character : MonoBehaviour
     public float Gravity = -9.8f;
     public float AttackSlideDuration = 0.4f;
     public float AttackSlideSpeed = 0.06f;
+
     //Enemy
     private UnityEngine.AI.NavMeshAgent Agent;
     private Transform TargetPlayer;
@@ -29,11 +31,14 @@ public class Character : MonoBehaviour
     //State
     public enum CharacterState
     {
-        Normal,Attack,Dead
+        Normal,Attack,Dead,Hit
     }
     public CharacterState CurrentState;
 
     public bool IsPlayer = true;
+    public bool IsInvincible;
+
+    public float InvincibleDuration = 2f;
 
     private void Awake()
     {
@@ -105,8 +110,6 @@ public class Character : MonoBehaviour
             case CharacterState.Attack:
                 if(IsPlayer)
                 {
-                    MovementVelocity = Vector3.zero;
-
                     if(Time.time < AttackStartTime + AttackSlideDuration) 
                     {
                         float TimePassed = Time.time - AttackStartTime;
@@ -117,6 +120,13 @@ public class Character : MonoBehaviour
                 break;
             case CharacterState.Dead:
                 return;
+            case CharacterState.Hit:
+                if(ImpactVector.magnitude > 0.2f)
+                {
+                    MovementVelocity = ImpactVector * Time.deltaTime;
+                }
+                ImpactVector = Vector3.Lerp(ImpactVector, Vector3.zero, Time.deltaTime * 5);
+                break;
         }
 
         if(IsPlayer)
@@ -130,8 +140,9 @@ public class Character : MonoBehaviour
             MovementVelocity += VerticalVelocity * Vector3.up * Time.deltaTime;
 
             cc.Move(MovementVelocity);
+            MovementVelocity = Vector3.zero;
         }
-       
+
     }
 
     public void SwitchStateTo(CharacterState new_state)
@@ -148,6 +159,8 @@ public class Character : MonoBehaviour
                 break;
             case CharacterState.Dead:
                 return;
+            case CharacterState.Hit:
+                break;
         }
         //Enter
         switch (new_state)
@@ -171,12 +184,25 @@ public class Character : MonoBehaviour
                 anim.SetTrigger("Dead");
                 StartCoroutine(MaterialDissolve());
                 break;
+            case CharacterState.Hit:
+                anim.SetTrigger("IsHit");
+                if(IsPlayer)
+                {
+                    IsInvincible = true;
+                    StartCoroutine(DelayCancelInvincible());
+                }
+                break;
         }
 
         CurrentState = new_state;
 
         
         //Debug.Log("Swtich State " + CurrentState);
+    }
+
+    public void HitEnd()
+    {
+        SwitchStateTo(CharacterState.Normal);
     }
 
     public void AttackEnd()
@@ -186,6 +212,11 @@ public class Character : MonoBehaviour
 
     public void ApplyDamage (int damage, Vector3 AttackerPos = new Vector3())
     {
+        if(IsInvincible)
+        {
+            return;
+        }
+
         if(m_Health != null)
         {
             m_Health.ApplyDamage(damage);
@@ -197,6 +228,26 @@ public class Character : MonoBehaviour
         }
 
         StartCoroutine(MaterialBlink());
+
+        if(IsPlayer)
+        {
+            SwitchStateTo(CharacterState.Hit);
+            AddImpact(AttackerPos, 10f);
+        }
+    }
+
+    IEnumerator DelayCancelInvincible()
+    {
+        yield return new WaitForSeconds(InvincibleDuration);
+        IsInvincible = false;
+    }
+
+    void AddImpact(Vector3 CauserPos, float force)
+    {
+        Vector3 ImpactDir = transform.position - CauserPos;
+        ImpactDir.Normalize();
+        ImpactDir.y = 0;
+        ImpactVector = ImpactDir * force;
     }
 
     public void AttackCollisionEnable()
