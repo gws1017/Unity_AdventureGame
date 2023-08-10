@@ -29,7 +29,7 @@ public class Character : MonoBehaviour
     //State
     public enum CharacterState
     {
-        Normal,Attack
+        Normal,Attack,Dead
     }
     public CharacterState CurrentState;
 
@@ -115,6 +115,8 @@ public class Character : MonoBehaviour
                     }
                 }
                 break;
+            case CharacterState.Dead:
+                return;
         }
 
         if(IsPlayer)
@@ -132,7 +134,7 @@ public class Character : MonoBehaviour
        
     }
 
-    private void SwitchStateTo(CharacterState new_state)
+    public void SwitchStateTo(CharacterState new_state)
     {
         if(IsPlayer)playerinput.MouseButtonDown = false;
         //Exit
@@ -144,6 +146,8 @@ public class Character : MonoBehaviour
                 if(m_DamageCaster != null)
                     AttackCollisionDisable();
                 break;
+            case CharacterState.Dead:
+                return;
         }
         //Enter
         switch (new_state)
@@ -161,6 +165,11 @@ public class Character : MonoBehaviour
                     AttackStartTime = Time.time;
 
                 anim.SetTrigger("Attack");
+                break;
+            case CharacterState.Dead:
+                cc.enabled = false;
+                anim.SetTrigger("Dead");
+                StartCoroutine(MaterialDissolve());
                 break;
         }
 
@@ -207,6 +216,29 @@ public class Character : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         m_MaterialPropertyBlock.SetFloat("_blink", 0f);
         m_SkinnedMeshRenderer.SetPropertyBlock(m_MaterialPropertyBlock);
+    }
+
+    IEnumerator MaterialDissolve()
+    {
+        yield return new WaitForSeconds(2f);
+
+        float DissolveTimeDuration = 2f;
+        float CurrentDissoveTime = 0f;
+        float DissovleHeightStart = 20f;
+        float DissovleHeightTarget = -10f;
+        float DissovleHeight;
+
+        m_MaterialPropertyBlock.SetFloat("_enableDissolve", 1f);
+        m_SkinnedMeshRenderer.SetPropertyBlock(m_MaterialPropertyBlock);
+
+        while(CurrentDissoveTime < DissolveTimeDuration)
+        {
+            CurrentDissoveTime += Time.deltaTime;
+            DissovleHeight = Mathf.Lerp(DissovleHeightStart, DissovleHeightTarget, CurrentDissoveTime / DissolveTimeDuration);
+            m_MaterialPropertyBlock.SetFloat("_dissolve_height", DissovleHeight);
+            m_SkinnedMeshRenderer.SetPropertyBlock(m_MaterialPropertyBlock);
+            yield return null;
+        }
     }
 }
 
