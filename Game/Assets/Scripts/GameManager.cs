@@ -18,12 +18,12 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        Debug.Log("Game Over");
+        UIManager.ShowGameOverUI();
     }
 
     public void GameIsFinished()
     {
-        Debug.Log("Game is Finished");
+        UIManager.ShowGameIsFinishedUI();
     }
 
     private void Update()

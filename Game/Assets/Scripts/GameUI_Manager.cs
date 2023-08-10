@@ -79,4 +79,13 @@ public class GameUI_Manager : MonoBehaviour
     {
         GM.Restart();
     }
+
+    public void ShowGameOverUI()
+    {
+        SwitchUIStateTo(GameUI_State.GameOver);
+    }
+    public void ShowGameIsFinishedUI()
+    {
+        SwitchUIStateTo(GameUI_State.GameIsFinished);
+    }
 }
