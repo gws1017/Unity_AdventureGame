@@ -19,10 +19,14 @@ public class Character : MonoBehaviour
     private float VerticalVelocity;
     private float AttackStartTime;
 
+    public GameObject ItemToDrop;
+
     public float MoveSpeed = 5f;
     public float Gravity = -9.8f;
     public float AttackSlideDuration = 0.4f;
     public float AttackSlideSpeed = 0.06f;
+
+    public int Coin = 0;
 
     //Enemy
     private UnityEngine.AI.NavMeshAgent Agent;
@@ -290,6 +294,40 @@ public class Character : MonoBehaviour
             m_SkinnedMeshRenderer.SetPropertyBlock(m_MaterialPropertyBlock);
             yield return null;
         }
+
+        DropItem();
+    }
+
+    public void DropItem()
+    {
+        if(ItemToDrop != null)
+        {
+            Instantiate(ItemToDrop,transform.position,Quaternion.identity);
+        }
+    }
+
+    public void PickUpItem(PickUp Item)
+    {
+        switch(Item.Type)
+        {
+            case PickUp.PickUpType.Heal:
+                AddHealth(Item.Value);
+                GetComponent<PlayerVFXManager>().PlayHealVFX();
+                break;
+            case PickUp.PickUpType.Coin:
+                AddCoin(Item.Value);
+                break;
+        }
+    }
+
+    private void AddHealth(int value)
+    {
+        m_Health.AddHealth(value);
+    }
+
+    private void AddCoin(int value)
+    {
+        Coin += value;
     }
 }
 
