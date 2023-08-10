@@ -37,7 +37,7 @@ public class Character : MonoBehaviour
     //State
     public enum CharacterState
     {
-        Normal,Attack,Dead,Hit,Slide
+        Normal,Attack,Dead,Hit,Slide,Spawn
     }
     public CharacterState CurrentState;
 
@@ -45,6 +45,8 @@ public class Character : MonoBehaviour
     public bool IsInvincible;
 
     public float InvincibleDuration = 2f;
+    public float SpawnDuration = 2f;
+    public float CurrentSpawnTime;
 
     private void Awake()
     {
@@ -62,6 +64,7 @@ public class Character : MonoBehaviour
             Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
             TargetPlayer = GameObject.FindWithTag("Player").transform;
             Agent.speed = MoveSpeed;
+            SwitchStateTo(CharacterState.Spawn);
         }
         else 
         {
@@ -154,6 +157,13 @@ public class Character : MonoBehaviour
             case CharacterState.Slide:
                 MovementVelocity = transform.forward * SlideSpeed * Time.deltaTime;
                 break;
+            case CharacterState.Spawn:
+                CurrentSpawnTime -= Time.deltaTime;
+                if(CurrentSpawnTime <= 0)
+                {
+                    SwitchStateTo(CharacterState.Normal);
+                }
+                break;
         }
 
         if(IsPlayer)
@@ -192,6 +202,9 @@ public class Character : MonoBehaviour
                 break;
             case CharacterState.Slide:
                 break;
+            case CharacterState.Spawn:
+                IsInvincible = false;
+                break;
         }
         //Enter
         switch (new_state)
@@ -225,6 +238,11 @@ public class Character : MonoBehaviour
                 break;
             case CharacterState.Slide:
                 anim.SetTrigger("Slide");
+                break;
+            case CharacterState.Spawn:
+                IsInvincible = true;
+                CurrentSpawnTime = SpawnDuration;
+                StartCoroutine(MaterialAppear());
                 break;
         }
 
@@ -371,6 +389,29 @@ public class Character : MonoBehaviour
         {
             transform.LookAt(TargetPlayer,Vector3.up);
         }
+    }
+
+    IEnumerator MaterialAppear()
+    {
+        float DissolveTimeDuration = SpawnDuration;
+        float CurrentDissoveTime = 0f;
+        float DissovleHeightStart = -10f;
+        float DissovleHeightTarget = 20f;
+        float DissovleHeight;
+
+        m_MaterialPropertyBlock.SetFloat("_enableDissolve", 1f);
+        m_SkinnedMeshRenderer.SetPropertyBlock(m_MaterialPropertyBlock);
+
+        while (CurrentDissoveTime < DissolveTimeDuration)
+        {
+            CurrentDissoveTime += Time.deltaTime;
+            DissovleHeight = Mathf.Lerp(DissovleHeightStart, DissovleHeightTarget, CurrentDissoveTime / DissolveTimeDuration);
+            m_MaterialPropertyBlock.SetFloat("_dissolve_height", DissovleHeight);
+            m_SkinnedMeshRenderer.SetPropertyBlock(m_MaterialPropertyBlock);
+            yield return null;
+        }
+        m_MaterialPropertyBlock.SetFloat("_enableDissolve", 0f);
+        m_SkinnedMeshRenderer.SetPropertyBlock(m_MaterialPropertyBlock);
     }
 }
 
