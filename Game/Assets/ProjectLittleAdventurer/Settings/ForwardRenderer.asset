@@ -63,7 +63,7 @@ MonoBehaviour:
   - {fileID: 7929683030022889018}
   m_RendererFeatureMap: 489d9cb752072079431abc51ab2435c13a1ef5d9b3e40b6e
   m_UseNativeRenderPass: 0
-  postProcessData: {fileID: 0}
+  postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   m_Settings:
-    AOMethod: 1
+    AOMethod: 0
     Downsample: 1
     AfterOpaque: 0
     Source: 1
@@ -164,7 +164,7 @@ MonoBehaviour:
     Intensity: 1.5
     DirectLightingStrength: 0
     Radius: 0.2
-    Samples: 2
+    Samples: 1
     BlurQuality: 0
     Falloff: 100
     SampleCount: -1

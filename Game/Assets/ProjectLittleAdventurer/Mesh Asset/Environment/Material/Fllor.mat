@@ -9,8 +9,6 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Fllor
   m_Shader: {fileID: -6465566751694194690, guid: 34fea63f7f52e7c44b88f9f86d411502, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
@@ -19,7 +17,6 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -36,6 +33,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CloudShaderSubGraph_5aa74b4f19bf4d0a8acac41252b7755e_Texture2Da1cb3714a1ec4b0f81f146aa7908a6cf_1182168003:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -68,6 +69,7 @@ Material:
     - Color_601a031a9f68486ba231fe7d171332b6: {r: 1, g: 1, b: 1, a: 1}
     - Color_96812822db324bbaa0e7fe90525cec3a: {r: 1, g: 1, b: 1, a: 0}
     - Color_e9565f287a754a03a27b9610decfa8f1: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &9053614963663093691
 MonoBehaviour:
