@@ -12,17 +12,29 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
+
+        //if(!SpaceDown && Time.timeScale != 0)
+        //{
+        //    SpaceDown = Input.GetKeyDown(KeyCode.Space);
+        //}
+        //HorizonItalInput = Input.GetAxisRaw("Horizontal");
+        //VerticalInput = Input.GetAxisRaw("Vertical");
+    }
+
+    public void AttackClick()
+    {
         if(!MouseButtonDown && Time.timeScale != 0)
         {
-            MouseButtonDown = Input.GetMouseButtonDown(0);
+            MouseButtonDown = true;
         }
+    }
 
-        if(!SpaceDown && Time.timeScale != 0)
+    public void SlideClick ()
+    {
+        if (!SpaceDown && Time.timeScale != 0)
         {
-            SpaceDown = Input.GetKeyDown(KeyCode.Space);
+            SpaceDown = true;
         }
-        HorizonItalInput = Input.GetAxisRaw("Horizontal");
-        VerticalInput = Input.GetAxisRaw("Vertical");
     }
 
     private void OnDisable()

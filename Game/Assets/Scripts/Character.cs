@@ -232,7 +232,7 @@ public class Character : MonoBehaviour
                 else
                 {
                     AttackStartTime = Time.time;
-                    RotateToCursor();
+                    //RotateToCursor();
                 }
 
                 anim.SetTrigger("Attack");

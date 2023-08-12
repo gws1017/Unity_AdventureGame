@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class GameUI_Manager : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerInput playerInput;
     public GameManager GM;
 
     public TMPro.TextMeshProUGUI CoinText;
@@ -80,6 +82,14 @@ public class GameUI_Manager : MonoBehaviour
         GM.Restart();
     }
 
+    public void Button_Attack()
+    {
+        playerInput.AttackClick();
+    }
+    public void Button_Slide()
+    {
+        playerInput.SlideClick();
+    }
     public void ShowGameOverUI()
     {
         SwitchUIStateTo(GameUI_State.GameOver);
