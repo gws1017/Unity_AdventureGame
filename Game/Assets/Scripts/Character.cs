@@ -34,6 +34,12 @@ public class Character : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent Agent;
     private Transform TargetPlayer;
 
+    [SerializeField]
+    private string hitSound;
+    [SerializeField]
+    private string AttackSound;
+    [SerializeField]
+    private string FootStepSound;
     //State
     public enum CharacterState
     {
@@ -258,6 +264,7 @@ public class Character : MonoBehaviour
                 break;
             case CharacterState.Slide:
                 anim.SetTrigger("Slide");
+                SoundManager.instance.PlaySFX("PlayerSlide");
                 break;
             case CharacterState.Spawn:
                 IsInvincible = true;
@@ -297,6 +304,7 @@ public class Character : MonoBehaviour
         if(m_Health != null)
         {
             m_Health.ApplyDamage(damage);
+            SoundManager.instance.PlaySFX(hitSound);
         }
         
         if(!IsPlayer)
@@ -460,5 +468,14 @@ public class Character : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(CursorPos - transform.position, Vector3.up);
         }
     }
+    public void PlayAttackSound()
+    {
+        SoundManager.instance.PlaySFX(AttackSound);
+    }
+    public void PlayFootStep()
+    {
+        SoundManager.instance.PlaySFX(FootStepSound);
+    }
+
 }
 

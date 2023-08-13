@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4145364177977427892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4145364177977427893}
+  - component: {fileID: 4145364177977427894}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4145364177977427893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4145364177977427892}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4145364177977427894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4145364177977427892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fd605bb1756c14b8fc990988d5134b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmSounds:
+  - name: GameScene
+    soundClip: {fileID: 8300000, guid: 882f38efd0b3ac648b6aad20ea575499, type: 3}
+  - name: MainMenu
+    soundClip: {fileID: 8300000, guid: 0f9afe08b776e4544bd5f09c23eccfe8, type: 3}
+  - name: 
+    soundClip: {fileID: 0}
+  - name: 
+    soundClip: {fileID: 0}
+  - name: 
+    soundClip: {fileID: 0}
+  bgmVolume: 0.5
+  sfxSounds:
+  - name: EnemyHit
+    soundClip: {fileID: 8300000, guid: 9b108c6ecd8d0fd4385e6097940723f4, type: 3}
+  - name: PlayerHit
+    soundClip: {fileID: 8300000, guid: 87a5ee61fb719054e94894d719bd29f8, type: 3}
+  - name: PlayerAttack
+    soundClip: {fileID: 8300000, guid: e77350a147fa1b54d95e1da2e87ffcef, type: 3}
+  - name: EnemyAttack
+    soundClip: {fileID: 8300000, guid: 034471c58d484404d95ccf39617159b8, type: 3}
+  - name: PlayerSlide
+    soundClip: {fileID: 8300000, guid: a8bf994638f310040932478248249bd0, type: 3}
+  - name: PlayerFootStep
+    soundClip: {fileID: 8300000, guid: fba95cafa5bba8649a7d269656e7317b, type: 3}
+  - name: 
+    soundClip: {fileID: 0}
+  - name: 
+    soundClip: {fileID: 0}
+  - name: 
+    soundClip: {fileID: 0}
+  - name: 
+    soundClip: {fileID: 0}
+  - name: 
+    soundClip: {fileID: 0}
+  - name: 
+    soundClip: {fileID: 0}
+  - name: 
+    soundClip: {fileID: 0}
+  - name: 
+    soundClip: {fileID: 0}
+  - name: 
+    soundClip: {fileID: 0}
+  - name: 
+    soundClip: {fileID: 0}
+  channels: 16
+  sfxVolume: 0.5

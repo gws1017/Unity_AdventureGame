@@ -104,7 +104,7 @@ NavMeshSettings:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    serializedVersion: 3
+    serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
@@ -117,7 +117,7 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    buildHeightMesh: 0
+    accuratePlacement: 0
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
@@ -139,13 +139,67 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
+--- !u!1001 &186418393
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4145364177977427892, guid: 56bcdd1c982d21e4a91982c606a58fc0, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145364177977427893, guid: 56bcdd1c982d21e4a91982c606a58fc0, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145364177977427893, guid: 56bcdd1c982d21e4a91982c606a58fc0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145364177977427893, guid: 56bcdd1c982d21e4a91982c606a58fc0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145364177977427893, guid: 56bcdd1c982d21e4a91982c606a58fc0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145364177977427893, guid: 56bcdd1c982d21e4a91982c606a58fc0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145364177977427893, guid: 56bcdd1c982d21e4a91982c606a58fc0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145364177977427893, guid: 56bcdd1c982d21e4a91982c606a58fc0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145364177977427893, guid: 56bcdd1c982d21e4a91982c606a58fc0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145364177977427893, guid: 56bcdd1c982d21e4a91982c606a58fc0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145364177977427893, guid: 56bcdd1c982d21e4a91982c606a58fc0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145364177977427893, guid: 56bcdd1c982d21e4a91982c606a58fc0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56bcdd1c982d21e4a91982c606a58fc0, type: 3}
 --- !u!114 &219158880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,13 +216,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &262849341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,19 +236,15 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!1001 &370396205
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1676038871238565895, guid: 74ea45f96d67b854391e0797ac0ecb1d, type: 3}
@@ -211,6 +258,10 @@ PrefabInstance:
     - target: {fileID: 1676038871238565915, guid: 74ea45f96d67b854391e0797ac0ecb1d, type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676038871238565915, guid: 74ea45f96d67b854391e0797ac0ecb1d, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1676038871238565915, guid: 74ea45f96d67b854391e0797ac0ecb1d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -341,12 +392,6 @@ PrefabInstance:
       value: MainmenuUI_Manager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1676038871238565895, guid: 74ea45f96d67b854391e0797ac0ecb1d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1390461703}
   m_SourcePrefab: {fileID: 100100000, guid: 74ea45f96d67b854391e0797ac0ecb1d, type: 3}
 --- !u!1 &371287271
 GameObject:
@@ -408,13 +453,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371287271}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &470970987
 MonoBehaviour:
@@ -432,13 +477,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &537956956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,13 +497,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &601026690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,13 +517,67 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
+--- !u!1001 &677938415
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 102085579001120685, guid: 516ce10f1919a6d41a13be98dca38804, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 102085579001120687, guid: 516ce10f1919a6d41a13be98dca38804, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 102085579001120687, guid: 516ce10f1919a6d41a13be98dca38804, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.1300373
+      objectReference: {fileID: 0}
+    - target: {fileID: 102085579001120687, guid: 516ce10f1919a6d41a13be98dca38804, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3800995
+      objectReference: {fileID: 0}
+    - target: {fileID: 102085579001120687, guid: 516ce10f1919a6d41a13be98dca38804, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.7625165
+      objectReference: {fileID: 0}
+    - target: {fileID: 102085579001120687, guid: 516ce10f1919a6d41a13be98dca38804, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 102085579001120687, guid: 516ce10f1919a6d41a13be98dca38804, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 102085579001120687, guid: 516ce10f1919a6d41a13be98dca38804, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 102085579001120687, guid: 516ce10f1919a6d41a13be98dca38804, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 102085579001120687, guid: 516ce10f1919a6d41a13be98dca38804, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 102085579001120687, guid: 516ce10f1919a6d41a13be98dca38804, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 102085579001120687, guid: 516ce10f1919a6d41a13be98dca38804, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 516ce10f1919a6d41a13be98dca38804, type: 3}
 --- !u!114 &708756321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,13 +594,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &769498566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,13 +614,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &856540844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,13 +634,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1188408555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,13 +654,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1226838152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,13 +674,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1342807114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,13 +694,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1368826356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,21 +714,21 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!1001 &1372119104
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4891276209432459168, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4891276209432459168, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -698,94 +773,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainGame Level
       objectReference: {fileID: 0}
+    - target: {fileID: 5541573733250393500, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3744321355808592987, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1372119137}
-    - targetCorrespondingSourceObject: {fileID: 3744321355301472747, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1372119136}
-    - targetCorrespondingSourceObject: {fileID: 3744321354575211900, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1372119135}
-    - targetCorrespondingSourceObject: {fileID: 3744321354518602950, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1372119134}
-    - targetCorrespondingSourceObject: {fileID: 3744321356265522403, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1372119133}
-    - targetCorrespondingSourceObject: {fileID: 3744321356278573586, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 470970987}
-    - targetCorrespondingSourceObject: {fileID: 3744321354924650520, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1566631852}
-    - targetCorrespondingSourceObject: {fileID: 3744321354608519218, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1837562242}
-    - targetCorrespondingSourceObject: {fileID: 3744321354484181358, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1226838152}
-    - targetCorrespondingSourceObject: {fileID: 3744321354835428696, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 769498566}
-    - targetCorrespondingSourceObject: {fileID: 3744321356525428919, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1882721739}
-    - targetCorrespondingSourceObject: {fileID: 3744321355829415224, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 537956956}
-    - targetCorrespondingSourceObject: {fileID: 3744321355819450404, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1368826356}
-    - targetCorrespondingSourceObject: {fileID: 3744321354779612881, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 856540844}
-    - targetCorrespondingSourceObject: {fileID: 3744321356572187907, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1793541094}
-    - targetCorrespondingSourceObject: {fileID: 3744321355172556389, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1577451076}
-    - targetCorrespondingSourceObject: {fileID: 3744321356088961953, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 50069681}
-    - targetCorrespondingSourceObject: {fileID: 3744321354791199315, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 262849341}
-    - targetCorrespondingSourceObject: {fileID: 3744321356012954701, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 601026690}
-    - targetCorrespondingSourceObject: {fileID: 36556332649281670, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 708756321}
-    - targetCorrespondingSourceObject: {fileID: 3744321355587449998, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 219158880}
-    - targetCorrespondingSourceObject: {fileID: 3744321354734423068, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1724470182}
-    - targetCorrespondingSourceObject: {fileID: 3744321355471261511, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2059299703}
-    - targetCorrespondingSourceObject: {fileID: 3744321355506635363, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1977244273}
-    - targetCorrespondingSourceObject: {fileID: 3744321355316456639, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1188408555}
-    - targetCorrespondingSourceObject: {fileID: 3744321355274430561, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1342807114}
-    - targetCorrespondingSourceObject: {fileID: 3744321355014689807, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1795984633}
-    - targetCorrespondingSourceObject: {fileID: 3744321355044777862, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1898463890}
   m_SourcePrefab: {fileID: 100100000, guid: 7afccb46afae0ec4d82e772dd5035a64, type: 3}
 --- !u!1 &1372119105 stripped
 GameObject:
@@ -943,13 +935,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1372119134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,13 +955,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1372119135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -989,13 +975,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1372119136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1012,13 +995,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1372119137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1035,13 +1015,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!1 &1390461698 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1676038871238565895, guid: 74ea45f96d67b854391e0797ac0ecb1d, type: 3}
@@ -1075,13 +1052,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1577451076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1098,13 +1072,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1724470182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1121,13 +1092,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1793541094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1144,13 +1112,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1795984633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,13 +1132,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1837562242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,13 +1152,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1882721739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1213,13 +1172,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1898463890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1236,13 +1192,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &1977244273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1259,13 +1212,10 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
 --- !u!114 &2059299703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1282,17 +1232,7 @@ MonoBehaviour:
   m_UsePipelineSettings: 1
   m_AdditionalLightsShadowResolutionTier: 2
   m_LightLayerMask: 1
-  m_RenderingLayers: 1
   m_CustomShadowLayers: 0
   m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
---- !u!1660057539 &9223372036854775807
-SceneRoots:
-  m_ObjectHideFlags: 0
-  m_Roots:
-  - {fileID: 1372119104}
-  - {fileID: 370396205}
-  - {fileID: 371287274}
